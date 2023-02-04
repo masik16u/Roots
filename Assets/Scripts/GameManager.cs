@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject square;
     public Text bscore;
 
-    public int tutorial = -1;
+    public int tutorial = 5;
 
     private void Start()
     {

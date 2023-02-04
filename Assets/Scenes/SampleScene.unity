@@ -682,7 +682,7 @@ MonoBehaviour:
   toolChange: {fileID: 1933391764}
   square: {fileID: 1132700413}
   bscore: {fileID: 841661409}
-  tutorial: -1
+  tutorial: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
