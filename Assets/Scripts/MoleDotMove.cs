@@ -35,7 +35,7 @@ public class MoleDotMove : MonoBehaviour
         }
         if(transform.position == moleFinish.transform.position)
         {
-            if (cam.GetComponent<MouseScroll>().tutorial != 2)
+            if (cam.GetComponent<GameManager>().tutorial != 2)
             {
                 pressStart.GetComponent<Text>().text = "Press |R| to Restart";
                 pressStart.GetComponent<Text>().enabled = true;

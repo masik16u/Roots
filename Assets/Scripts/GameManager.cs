@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MouseScroll : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public float num = 0;
     public GameObject d;
@@ -21,6 +21,7 @@ public class MouseScroll : MonoBehaviour
 
     public Text score;
     public Text pressStart;
+    public Text tutorialText;
 
     public AudioSource buttonSound;
     public AudioSource toolChange;
@@ -28,24 +29,24 @@ public class MouseScroll : MonoBehaviour
     public GameObject square;
     public Text bscore;
 
-    public int tutorial = 0;
+    public int tutorial = -1;
 
     private void Start()
     {
-        PlayerPrefs.SetInt("Tutorial", 0);
 
-        if (PlayerPrefs.GetInt("Tutorial") != 1)
+        if (PlayerPrefs.HasKey("Tutorial") || PlayerPrefs.GetInt("Tutorial") == 0)
         {
             PlayerPrefs.SetInt("Tutorial", 1);
             PlayerPrefs.Save();
             moleDot.SetActive(false);
             fireCursor.SetActive(false);
             magnetCursor.SetActive(false);
+            tutorialText.enabled = false;
+            tutorialText.GetComponent<Text>().text = "- Your goal is to save as many roots as possible while they randomly grow in different directions.";
+            tutorial = 0;
         }
-
-        if (PlayerPrefs.GetInt("Tutorial") == 9)
+        else
         {
-            PlayerPrefs.SetInt("Tutorial", 1);
             d.name = "Death1";
             d.transform.Rotate(new Vector3(0, 0, Random.Range(0, 360)));
             Instantiate(d, new Vector2(Random.Range(-7f, -1f), Random.Range(2f, -4f)), d.transform.rotation);
@@ -132,6 +133,8 @@ public class MouseScroll : MonoBehaviour
                 d.name = "Death";
 
                 pressStart.GetComponent<Text>().text = "Press |Space| to Start";
+                tutorialText.enabled = false;
+                tutorialText.GetComponent<Text>().text = "- If the root touches the rock, then the whole branch withers.";
                 tutorial = 1;
             }
         }
@@ -196,6 +199,8 @@ public class MouseScroll : MonoBehaviour
                 mole.GetComponent<SpriteRenderer>().flipY = true;
 
                 pressStart.GetComponent<Text>().text = "Press |Space| to Start";
+                tutorialText.enabled = false;
+                tutorialText.GetComponent<Text>().text = "- The mole eats the root and the branch it belongs to can no longer grow.";
                 tutorial = 2;
             }
         }
@@ -261,6 +266,7 @@ public class MouseScroll : MonoBehaviour
                 magnetCursor.SetActive(true);
 
                 pressStart.GetComponent<Text>().text = "Press |R| to End Tutorial";
+                tutorialText.GetComponent<Text>().text = "- You have two tools: magnet and fire. The magnet tilts the direction of the main root. The fire stops the root branch it touches from growing. Use the mouse wheel to swap between tools.";
                 tutorial = 3;
             }
         }
@@ -441,6 +447,7 @@ public class MouseScroll : MonoBehaviour
             buttonSound.Play(0);
             pressStart.GetComponent<Text>().enabled = false;
             circle.tag = "Seed";
+            tutorialText.enabled = true;
         }
 
         //Regenerate Level
