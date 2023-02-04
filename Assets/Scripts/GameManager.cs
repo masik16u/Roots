@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("Tutorial") || PlayerPrefs.GetInt("Tutorial") == 0)
         {
-            PlayerPrefs.SetInt("Tutorial", 1);
-            PlayerPrefs.Save();
             moleDot.SetActive(false);
             fireCursor.SetActive(false);
             magnetCursor.SetActive(false);
@@ -397,13 +395,15 @@ public class GameManager : MonoBehaviour
                 dSide.GetComponent<DrawLine>().width = 0.15f;
 
                 pressStart.GetComponent<Text>().text = "Press |Space| to Start";
-
+                tutorialText.GetComponent<Text>().text = "";
                 tutorial = 4;
+                PlayerPrefs.SetInt("Tutorial", 1);
+                PlayerPrefs.Save();
             }
         }
 
         //Scroll between Tools
-        if (num != num + Input.GetAxis("Mouse ScrollWheel"))
+        if (num != num + Input.GetAxis("Mouse ScrollWheel") && tutorial >= 3)
         {
             toolChange.Play(0);
             num += Mathf.Round(Input.GetAxis("Mouse ScrollWheel") * 10);
