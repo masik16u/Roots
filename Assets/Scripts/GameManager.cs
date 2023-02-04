@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 
-        if (PlayerPrefs.HasKey("Tutorial") || PlayerPrefs.GetInt("Tutorial") == 0)
+        if (!PlayerPrefs.HasKey("Tutorial") || PlayerPrefs.GetInt("Tutorial") == 0)
         {
             PlayerPrefs.SetInt("Tutorial", 1);
             PlayerPrefs.Save();
@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
             }
         }
         //Generate Level
-
 
         Cursor.visible = false;
     }
