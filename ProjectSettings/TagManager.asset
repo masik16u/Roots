@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Seed
+  - Right
+  - Left
+  - On
+  - Off
+  - Up
+  - Down
+  - Bad
+  - Cut
+  - Dead
+  - Line
+  - DeadLine
+  - PressStart
+  - Score
+  - Copy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2906349501
+    locked: 0
+  - name: Mole
+    uniqueID: 1854628945
+    locked: 0
+  - name: Dots
+    uniqueID: 2682736937
+    locked: 0
+  - name: Roots
+    uniqueID: 1450561499
+    locked: 0
+  - name: Death
+    uniqueID: 3436576823
+    locked: 0
+  - name: Tools
+    uniqueID: 1559170929
+    locked: 0
+  - name: Blur
+    uniqueID: 2226541903
+    locked: 0
