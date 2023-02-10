@@ -1029,7 +1029,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press |Space| to Begin Tutorial
+  m_Text: Press |Space| to Start
 --- !u!222 &787575065
 CanvasRenderer:
   m_ObjectHideFlags: 0
